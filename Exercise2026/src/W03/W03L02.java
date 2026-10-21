@@ -1,34 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package W03;
 
 import java.util.Scanner;
-/**
- *
- * @author leeshinying
- */
+
+// Lab 2, question 2: monthly payment for a car loan (two decimal places).
+// M = (P - D) * (1 + R * Y / 100) / (Y * 12), where P = price, D = down payment, R = interest rate in %, Y = years.
+// Answer by Ethan (@ETHAN071104), PR #5. Test: P 50000, D 5000, R 3, Y 5 -> 862.50.
 public class W03L02 {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Scanner keyboard = new Scanner(System.in);
 
-        System.out.print("Enter car price (P): ");
-        double P = input.nextDouble();
+        System.out.print("Enter the price of the car (P): ");
+        double p = keyboard.nextDouble();
 
-        System.out.print("Enter down payment (D): ");
-        double D = input.nextDouble();
+        System.out.print("Enter the down payment (D): ");
+        double d = keyboard.nextDouble();
 
-        System.out.print("Enter interest rate in % (R): ");
-        double R = input.nextDouble();
+        System.out.print("Enter the interest rate in % (R): ");
+        double r = keyboard.nextDouble();
 
-        System.out.print("Enter loan duration in years (Y): ");
-        double Y = input.nextDouble();
+        System.out.print("Enter the loan duration in years (Y): ");
+        double y = keyboard.nextDouble();
 
-        double M = (P - D) * (1 + R * Y / 100) / (Y * 12);
+        double loan = p - d;                              // amount borrowed
+        double m = loan * (1 + r * y / 100) / (y * 12);   // total with interest, shared over y * 12 months
 
-        System.out.printf("Monthly Payment: %.2f\n", M);
-
-        input.close();
+        System.out.printf("Monthly payment: RM %.2f%n", m);
+        keyboard.close();
     }
 }
